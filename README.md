@@ -1,8 +1,6 @@
 # Zivi's Farm
 
-A small static website for [Zivi's Farm](https://zivisfarm.com), a weekend pumpkin patch in Colorado Springs. Flower season is the next chapter, and the site already makes room for it.
-
-Built with [Astro](https://astro.build). Pages are HTML, the type and photographs are self-hosted, and there is no client-side JavaScript.
+Static website for [Zivi's Farm](https://zivisfarm.com), a weekend pumpkin patch outside Colorado Springs that is growing toward a flower farm. Built with Astro.
 
 ## Develop
 
@@ -11,24 +9,22 @@ npm install
 npm run dev
 ```
 
+`npm run build` writes the static site to `dist/`. Deploy that output on Vercel (framework preset: Astro).
+
+## Edit the facts in one place
+
+Hours, the address, the season, prices, and social links live in [`src/data/site.ts`](src/data/site.ts). Search that file for `TODO` before launch.
+
+- Days are set: Friday afternoon, Saturday all day, Sunday all day.
+- Clock times, admission, the last day of the season, the public email, and social URLs are intentionally blank.
+- The domain in `astro.config.mjs` is a placeholder: `https://zivisfarm.com`.
+
+## Photos
+
+Originals are in `src/assets/`. Astro serves them as AVIF and WebP. They are phone photos, so the full-width hero is soft on large screens — a higher-resolution frame of the dusk field would help. Several pictures show children; confirm you have permission to publish them. The beer-fridge photo was left out on purpose.
+
+Favicons and `public/og.jpg` are generated from the logo:
+
 ```bash
-npm run build
-npm run preview
+node scripts/generate-brand-assets.mjs
 ```
-
-Deploy the `dist` folder to Vercel. The project is a static Astro site, and `vercel.json` sets cache headers for the hashed assets.
-
-## Before launch
-
-Facts that are still placeholders live in [`src/data/site.ts`](src/data/site.ts):
-
-- The public domain (`site` in `astro.config.mjs` and `site.url`)
-- Friday, Saturday, and Sunday clock times
-- The first and last weekend of the season
-- Admission price
-- Email, Instagram, and Facebook
-- The dog's name, if you want it in a caption
-
-The photographs in `src/assets/photos` were exported from a phone at 771×1024. They are fine for the portrait layouts on the site, and a higher-resolution frame of the pumpkin field would hold up better as a full-width hero. A few frames include children — confirm you have permission to publish them.
-
-The beer-fridge photograph was left out on purpose.

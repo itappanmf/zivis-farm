@@ -1,102 +1,105 @@
 /**
- * Single source for facts that show up in more than one place,
- * including search markup. Anything marked TODO is a placeholder.
+ * Single source for the farm's name, hours, and the bits still to confirm.
+ * Search this file for "TODO" before the site goes live.
  */
 
 export const site = {
   name: "Zivi's Farm",
   legalName: "Zivi's Farm LLC",
-  url: "https://zivisfarm.com",
+  /** TODO: confirm the public domain before launch. */
+  url: 'https://zivisfarm.com',
+  homeTitle: "Zivi's Farm · Pumpkin Patch in Colorado Springs",
   description:
-    "A weekend pumpkin patch in Colorado Springs. Pick a pumpkin, ride the hay wagon, and stay until the light goes gold. Flower season comes next spring.",
-  // TODO: confirm the public email before launch.
-  email: "hello@zivisfarm.com",
-  locale: "en_US",
+    'A weekend pumpkin patch on the prairie outside Colorado Springs. Hayrides, heirloom pumpkins, and a flower farm on the way.',
+  locale: 'en_US',
+  /** TODO: replace with the farm's real mailbox, then set emailPublic to true. */
+  email: 'hello@zivisfarm.com',
+  emailPublic: false,
+  address: {
+    street: '3398 Daydreamer Drive',
+    city: 'Colorado Springs',
+    region: 'CO',
+    postalCode: '80908',
+    country: 'US',
+  },
+  /**
+   * Days are set: Friday afternoon, Saturday all day, Sunday all day.
+   * TODO: fill opens and closes as 24-hour "HH:MM" once clock times are confirmed.
+   * Leave them empty until then so guessed hours never reach the page or search results.
+   */
+  hours: [
+    {
+      day: 'Friday',
+      schemaDay: 'https://schema.org/Friday',
+      label: 'Afternoon',
+      opens: '',
+      closes: '',
+    },
+    {
+      day: 'Saturday',
+      schemaDay: 'https://schema.org/Saturday',
+      label: 'All day',
+      opens: '',
+      closes: '',
+    },
+    {
+      day: 'Sunday',
+      schemaDay: 'https://schema.org/Sunday',
+      label: 'All day',
+      opens: '',
+      closes: '',
+    },
+  ],
+  /**
+   * TODO: confirm the first and last weekend.
+   * start is the weekend we know the patch was already open (early October 2026), not a announced opening day.
+   * Leave end empty until the farm names a last day.
+   */
+  season: {
+    name: 'Pumpkin Patch',
+    year: 2026,
+    start: '2026-10-02',
+    end: '',
+  },
+  /** TODO: admission price, if there is one. Null means the site does not advertise a number. */
+  price: null as string | null,
+  /** TODO: real profile URLs. Empty strings render as "soon", not as links. */
+  social: {
+    instagram: '',
+    facebook: '',
+  },
 } as const;
 
-export const address = {
-  street: "3398 Daydreamer Drive",
-  city: "Colorado Springs",
-  region: "CO",
-  postalCode: "80908",
-  country: "US",
-} as const;
+export const hoursSummary = 'Friday afternoons, Saturday and Sunday all day';
 
-export const addressLine = `${address.street}, ${address.city}, ${address.region} ${address.postalCode}`;
-
-export const directionsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressLine)}`;
-
-/**
- * Days are set: Friday afternoon, Saturday and Sunday all day.
- * Clock times are planned placeholders — change them here and the
- * hours card and the search markup both update.
- */
-export const hoursArePlaceholders = true;
-
-export const hours = [
-  { day: "Friday", short: "Fri", when: "Afternoon", opens: "13:00", closes: "17:00", clock: "1–5 pm" },
-  { day: "Saturday", short: "Sat", when: "All day", opens: "10:00", closes: "17:00", clock: "10 am–5 pm" },
-  { day: "Sunday", short: "Sun", when: "All day", opens: "10:00", closes: "17:00", clock: "10 am–5 pm" },
-] as const;
-
-export const hoursSummary = "Friday afternoons, Saturday and Sunday all day";
-
-/** TODO: confirm the first and last weekend of the season. */
-export const season = {
-  name: "Pumpkin Patch",
-  year: 2026,
-  startDate: "2026-10-02",
-  endDate: "2026-11-01",
-  label: "Weekends this fall",
-} as const;
-
-/** TODO: set a real price. Null means we do not publish one. */
-export const admission: string | null = null;
-
-/** TODO: add profile URLs when the accounts exist. Empty stays off the page as a link. */
-export const social = {
-  instagram: "",
-  facebook: "",
-} as const;
-
-export const nearby = ["Colorado Springs", "Black Forest", "Falcon", "Peyton"] as const;
+export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${site.address.street}, ${site.address.city}, ${site.address.region} ${site.address.postalCode}`,
+)}`;
 
 export const faqs = [
   {
-    question: "Do you allow dogs?",
+    question: 'Are dogs welcome?',
     answer:
-      "Yes. Leashed dogs are welcome on the wagon and in the patch. Bring water for them, and please ask us before you bring any other animal.",
+      'The farm dog rides the tractor, and a bunny lives here too. If you want to bring your own dog, ask at the gate before you unload — we have not set a blanket pet rule, and the animals already here come first.',
   },
   {
-    question: "How much does it cost?",
+    question: 'What does it cost?',
     answer:
-      "We have not posted admission yet. There will be no surprise at the gate — the price will be listed on this page before you need it. Pumpkins and gourds are priced when you pick them.",
+      'We have not posted admission or pumpkin prices yet. The stand will tell you the number before you commit to anything. Nothing on this site is a price.',
   },
   {
-    question: "Should we buy tickets ahead of time?",
+    question: 'How should we pay?',
     answer:
-      "Not for now. Come during open hours and we will get you onto a wagon. If that changes on a busy Saturday, we will say so here.",
+      'Bring a card and a little cash until we say otherwise. We will post the method that actually works once the stand has used it for a few weekends.',
   },
   {
-    question: "Can we visit with a stroller or wheelchair?",
+    question: 'Is the patch accessible?',
     answer:
-      "The patch is a grassy field, and the wagon has a step. Sturdy shoes help more than dress shoes. Tell us what you need when you arrive and we will do our best to get you out to the pumpkins.",
+      'The ground is prairie grass and dirt, and the wagon is a step up. It is a field, not a paved park. If someone in your group needs a steadier way through, tell us when you arrive and we will help you find one.',
   },
   {
-    question: "What if the weather turns?",
+    question: 'What if the weather turns?',
     answer:
-      "A breeze is just the prairie being itself, and we stay open for it. If the wind or a storm makes the field unsafe, we will close and say so here.",
+      'Sun, cold, and prairie wind are part of the visit — bring a layer. If a storm makes the patch unsafe we close, and we say so at the gate.',
   },
-  {
-    question: "What should we bring?",
-    answer:
-      "Layers, sturdy shoes, and a way to pay. The sun is strong and the wind finds you. A hat helps. We have s'mores kits and carving kits if you want them, and water is the thing people wish they had brought.",
-  },
-] as const;
-
-export const nav = [
-  { href: "/pumpkin-patch/", label: "Pumpkin Patch" },
-  { href: "/visit/", label: "Visit" },
-  { href: "/about/", label: "Our Story" },
-  { href: "/flowers/", label: "Flowers" },
 ] as const;

@@ -4,10 +4,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: replace with the real domain before launch.
+  // TODO: confirm the public domain before launch.
   site: 'https://zivisfarm.com',
-
-  trailingSlash: 'always',
 
   integrations: [sitemap()],
 

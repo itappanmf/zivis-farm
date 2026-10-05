@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "Website for Zivi's Farm — a weekend pumpkin patch in Colorado Springs, and a flower farm in the making.",
+  "description": "Website for Zivi's Farm — a weekend pumpkin patch outside Colorado Springs, growing toward a flower farm.",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -14,10 +14,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.3",
-    "@fontsource/caveat": "^5.2.8",
-    "@fontsource/fraunces": "^5.2.9",
-    "@fontsource/source-sans-3": "^5.2.8",
-    "astro": "^7.1.4"
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/caveat": "^5.3.0",
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource-variable/source-sans-3": "^5.3.0",
+    "astro": "^7.3.5"
   }
 }
