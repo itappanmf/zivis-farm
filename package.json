@@ -1,0 +1,23 @@
+{
+  "name": "zivis-farm",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website for Zivi's Farm — a weekend pumpkin patch in Colorado Springs, and a flower farm in the making.",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource/caveat": "^5.2.8",
+    "@fontsource/fraunces": "^5.2.9",
+    "@fontsource/source-sans-3": "^5.2.8",
+    "astro": "^7.1.4"
+  }
+}
