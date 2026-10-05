@@ -12,9 +12,11 @@ export const site = {
   description:
     'A weekend pumpkin patch on the prairie outside Colorado Springs. Hayrides, heirloom pumpkins, and a flower farm on the way.',
   locale: 'en_US',
-  /** TODO: replace with the farm's real mailbox, then set emailPublic to true. */
-  email: 'hello@zivisfarm.com',
-  emailPublic: false,
+  email: 'john@zivisfarm.com',
+  emailPublic: true,
+  phoneDisplay: '(303) 549-5107',
+  phoneTel: 'tel:+13035495107',
+  phoneSchema: '+1-303-549-5107',
   address: {
     street: '3398 Daydreamer Drive',
     city: 'Colorado Springs',
@@ -22,32 +24,28 @@ export const site = {
     postalCode: '80908',
     country: 'US',
   },
-  /**
-   * Days are set: Friday afternoon, Saturday all day, Sunday all day.
-   * TODO: fill opens and closes as 24-hour "HH:MM" once clock times are confirmed.
-   * Leave them empty until then so guessed hours never reach the page or search results.
-   */
+  /** Open 10:00–17:00 Friday, Saturday, and Sunday. */
   hours: [
     {
       day: 'Friday',
       schemaDay: 'https://schema.org/Friday',
-      label: 'Afternoon',
-      opens: '',
-      closes: '',
+      label: '10–5',
+      opens: '10:00',
+      closes: '17:00',
     },
     {
       day: 'Saturday',
       schemaDay: 'https://schema.org/Saturday',
-      label: 'All day',
-      opens: '',
-      closes: '',
+      label: '10–5',
+      opens: '10:00',
+      closes: '17:00',
     },
     {
       day: 'Sunday',
       schemaDay: 'https://schema.org/Sunday',
-      label: 'All day',
-      opens: '',
-      closes: '',
+      label: '10–5',
+      opens: '10:00',
+      closes: '17:00',
     },
   ],
   /**
@@ -70,7 +68,8 @@ export const site = {
   },
 } as const;
 
-export const hoursSummary = 'Friday afternoons, Saturday and Sunday all day';
+export const hoursSummary = 'Friday, Saturday, and Sunday, 10 to 5';
+export const hoursPill = 'Fri–Sun, 10–5';
 
 export const nearby = ['Colorado Springs', 'Black Forest', 'Falcon', 'Peyton'] as const;
 

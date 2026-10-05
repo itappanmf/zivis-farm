@@ -25,7 +25,10 @@ const socials = [
         {site.address.street}<br />
         {site.address.city}, {site.address.region} {site.address.postalCode}
       </address>
-      {site.emailPublic && <p><a href={`mailto:${site.email}`}>{site.email}</a></p>}
+      <p>
+        <a href={site.phoneTel}>{site.phoneDisplay}</a><br />
+        {site.emailPublic && <a href={`mailto:${site.email}`}>{site.email}</a>}
+      </p>
     </div>
     <div>
       <h2>Say hello</h2>

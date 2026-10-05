@@ -15,8 +15,8 @@ npm run dev
 
 Hours, the address, the season, prices, and social links live in [`src/data/site.ts`](src/data/site.ts). Search that file for `TODO` before launch.
 
-- Days are set: Friday afternoon, Saturday all day, Sunday all day.
-- Clock times, admission, the last day of the season, the public email, and social URLs are intentionally blank.
+- Hours are Friday, Saturday, and Sunday, 10 to 5. Phone and email are in `site.ts`.
+- Admission, the last day of the season, and social URLs are still blank.
 - The domain in `astro.config.mjs` is a placeholder: `https://zivisfarm.com`.
 
 ## Photos

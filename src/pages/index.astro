@@ -29,7 +29,7 @@ import lounge from '../assets/photos/lounge.jpg';
   >
     <p class="eyebrow">Colorado Springs</p>
     <h1>Pick your pumpkin <em>under the big Colorado sky</em></h1>
-    <p>Weekends this fall. Friday afternoons, Saturday and Sunday all day.</p>
+    <p>Weekends this fall. Friday, Saturday, and Sunday, 10 to 5.</p>
     <p><a class="btn" href="/visit/">Plan your visit</a></p>
   </PageHero>
 
@@ -73,7 +73,7 @@ import lounge from '../assets/photos/lounge.jpg';
           <ScriptCaption>everyone finds a bale</ScriptCaption>
         </DeckledPhoto>
       </div>
-      <div class="wrap-narrow" style="margin-top: 2rem">
+      <div class="wrap-narrow ride-copy">
         <h2>Out to the patch, and back with one in your lap.</h2>
         <p>
           A short ride behind the tractor, hay bales for seats, and the whole prairie in front of you. The dog has
@@ -112,24 +112,25 @@ import lounge from '../assets/photos/lounge.jpg';
   </section>
 
   <section class="golden section">
-    <div class="wrap golden-grid">
-      <DeckledPhoto
-        src={smores}
-        alt="An orange tub packed with s'mores kits: graham crackers, marshmallows, and chocolate bars on sticks."
-      >
-        <ScriptCaption>packed for the fire</ScriptCaption>
-      </DeckledPhoto>
-      <div>
+    <div class="wrap">
+      <div class="golden-intro">
         <p class="script">stay a while</p>
         <h2>Stay until the light goes gold.</h2>
         <p>
           S'mores kits are ready when you are, and there is a place to sit once the wind settles. The prairie does the
           rest.
         </p>
+      </div>
+      <div class="golden-photos">
+        <DeckledPhoto
+          src={smores}
+          alt="An orange tub packed with s'mores kits: graham crackers, marshmallows, and chocolate bars on sticks."
+        >
+          <ScriptCaption>packed for the fire</ScriptCaption>
+        </DeckledPhoto>
         <DeckledPhoto
           src={lounge}
           alt="Outdoor wicker chairs with red cushions and floral pillows, under a wide blue sky."
-          sizes="(min-width: 840px) 28rem, 92vw"
         >
           <ScriptCaption>a place to sit</ScriptCaption>
         </DeckledPhoto>

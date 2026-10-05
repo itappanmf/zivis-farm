@@ -34,6 +34,7 @@ const business: Record<string, unknown> = {
   description: site.description,
   address,
   hasMap: mapsUrl,
+  telephone: site.phoneSchema,
   areaServed: ['Colorado Springs', 'Black Forest', 'Falcon', 'Peyton'],
   openingHoursSpecification: site.hours.map((hour) => {
     const spec: Record<string, string> = {
@@ -64,7 +65,7 @@ if (includeEvent) {
     '@id': `${origin}/#pumpkin-patch-${site.season.year}`,
     name: `${site.name} ${site.season.name} ${site.season.year}`,
     description:
-      'Weekend pumpkin patch with u-pick pumpkins and gourds, tractor hayrides, and farm activities outside Colorado Springs. Open Friday afternoons, Saturday and Sunday all day.',
+      'Weekend pumpkin patch with u-pick pumpkins and gourds, tractor hayrides, and farm activities outside Colorado Springs. Open Friday, Saturday, and Sunday, 10 to 5.',
     startDate: site.season.start,
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     eventStatus: 'https://schema.org/EventScheduled',

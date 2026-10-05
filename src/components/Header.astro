@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/logo/zivis-farm-logo.jpg';
-import { nav } from '../data/site';
+import { hoursPill, nav } from '../data/site';
 
 const path = Astro.url.pathname;
 ---
@@ -26,5 +26,5 @@ const path = Astro.url.pathname;
       ))
     }
   </nav>
-  <a class="pill" href="/visit/"><span class="pill-long">Open Fri–Sun</span><span class="pill-short">Fri–Sun</span></a>
+  <a class="pill" href="/visit/"><span class="pill-long">{hoursPill}</span><span class="pill-short">10–5</span></a>
 </header>

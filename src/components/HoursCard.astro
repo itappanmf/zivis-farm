@@ -1,5 +1,5 @@
 ---
-import { hoursSummary, mapsUrl, site } from '../data/site';
+import { mapsUrl, site } from '../data/site';
 ---
 
 <section class="hours-card" aria-label="Hours and address">
@@ -15,13 +15,6 @@ import { hoursSummary, mapsUrl, site } from '../data/site';
         ))
       }
     </ul>
-    <p class="fine">
-      {
-        site.hours.some((day) => day.opens && day.closes)
-          ? hoursSummary
-          : 'Exact open and close times are still being set. The days stay the same: Friday afternoon, all day Saturday, all day Sunday.'
-      }
-    </p>
   </div>
   <div>
     <address>
@@ -29,6 +22,10 @@ import { hoursSummary, mapsUrl, site } from '../data/site';
       {site.address.city}, {site.address.region}
       {site.address.postalCode}
     </address>
+    <p>
+      <a href={site.phoneTel}>{site.phoneDisplay}</a><br />
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+    </p>
     <a class="btn" href={mapsUrl} rel="noopener noreferrer">Get directions</a>
   </div>
 </section>
