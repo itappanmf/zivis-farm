@@ -7,9 +7,11 @@ export default defineConfig({
   // TODO: confirm the public domain before launch.
   site: 'https://zivisfarm.com',
 
+  trailingSlash: 'always',
+
   integrations: [sitemap()],
 
   build: {
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'always',
   },
 });

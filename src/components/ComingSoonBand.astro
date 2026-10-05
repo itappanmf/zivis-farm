@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo/zivis-farm-logo.jpg';
+---
+
+<aside class="soon">
+  <div class="wrap soon-inner">
+    <div class="sprigs" aria-hidden="true">
+      <svg viewBox="0 0 70 140">
+        <path d="M36 136 C 34 100, 40 70, 32 28" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+        <ellipse cx="22" cy="88" rx="11" ry="5" transform="rotate(-30 22 88)" fill="#6f8a4e"></ellipse>
+        <ellipse cx="48" cy="66" rx="11" ry="5" transform="rotate(26 48 66)" fill="#6f8a4e"></ellipse>
+        <circle cx="32" cy="24" r="7" fill="#e9a82b"></circle>
+        <circle cx="32" cy="24" r="2.8" fill="#4a2f22"></circle>
+        <circle cx="16" cy="40" r="3.6" fill="#c9708e"></circle>
+        <circle cx="50" cy="16" r="3" fill="#8e7bb5"></circle>
+      </svg>
+    </div>
+    <div>
+      <p class="script">next spring</p>
+      <h2>The same field, in flower.</h2>
+      <p>Sunflowers, lavender, and coneflowers — the ones already living in our mark.</p>
+      <p><a class="btn" href="/flowers/">See what's coming</a></p>
+    </div>
+    <Image class="soon-mark" src={logo} alt="" width={280} height={280} />
+  </div>
+</aside>

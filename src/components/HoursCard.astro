@@ -1,0 +1,34 @@
+---
+import { hoursSummary, mapsUrl, site } from '../data/site';
+---
+
+<section class="hours-card" aria-label="Hours and address">
+  <div>
+    <p class="eyebrow">This weekend</p>
+    <ul class="hours-list">
+      {
+        site.hours.map((day) => (
+          <li>
+            <span>{day.day}</span>
+            <span>{day.label}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="fine">
+      {
+        site.hours.some((day) => day.opens && day.closes)
+          ? hoursSummary
+          : 'Exact open and close times are still being set. The days stay the same: Friday afternoon, all day Saturday, all day Sunday.'
+      }
+    </p>
+  </div>
+  <div>
+    <address>
+      {site.address.street}<br />
+      {site.address.city}, {site.address.region}
+      {site.address.postalCode}
+    </address>
+    <a class="btn" href={mapsUrl} rel="noopener noreferrer">Get directions</a>
+  </div>
+</section>

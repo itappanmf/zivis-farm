@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import HoursCard from '../components/HoursCard.astro';
+import { faqs } from '../data/site';
+import wagon from '../assets/photos/hayride-family.jpg';
+
+const description =
+  'Hours, directions, and what to know before you drive to Zivi’s Farm. Open Friday afternoons, Saturday, and Sunday at 3398 Daydreamer Drive, Colorado Springs.';
+---
+
+<Base title="Plan Your Visit" description={description} faq={faqs}>
+  <PageHero
+    src={wagon}
+    alt="A wagon full of families on hay bales, one wind turbine rising behind them in a deep blue sky."
+    position="high"
+  >
+    <p class="eyebrow">Before you drive out</p>
+    <h1>Plan your visit</h1>
+    <p>Friday afternoons. Saturday and Sunday, all day. The clock times will be posted here when they are firm.</p>
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap">
+      <HoursCard />
+      <p class="fine">
+        The last day of the season is not posted yet. If you are planning a late October visit, check this page
+        again before you drive.
+      </p>
+      <div class="settled">
+        <h2>Parking</h2>
+        <p>
+          Park on the farm. The drive comes in off the road, and we will point you to a spot in the grass. Leave room
+          for the wagon to turn.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0">
+    <div class="wrap-narrow">
+      <h2>Good questions</h2>
+      {
+        faqs.map((item) => (
+          <div class="faq">
+            <h3>{item.question}</h3>
+            <p>{item.answer}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Base>

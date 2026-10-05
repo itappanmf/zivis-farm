@@ -1,0 +1,115 @@
+---
+import { mapsUrl, site } from '../data/site';
+
+interface Faq {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  includeEvent?: boolean;
+  faq?: readonly Faq[];
+}
+
+const { includeEvent = false, faq = [] } = Astro.props;
+const origin = (Astro.site ?? site.url).toString().replace(/\/$/, '');
+const image = new URL('/og.jpg', origin).href;
+
+const address = {
+  '@type': 'PostalAddress',
+  streetAddress: site.address.street,
+  addressLocality: site.address.city,
+  addressRegion: site.address.region,
+  postalCode: site.address.postalCode,
+  addressCountry: site.address.country,
+};
+
+const business: Record<string, unknown> = {
+  '@type': ['LocalBusiness', 'TouristAttraction'],
+  '@id': `${origin}/#farm`,
+  name: site.name,
+  legalName: site.legalName,
+  url: origin + '/',
+  image,
+  description: site.description,
+  address,
+  hasMap: mapsUrl,
+  areaServed: ['Colorado Springs', 'Black Forest', 'Falcon', 'Peyton'],
+  openingHoursSpecification: site.hours.map((hour) => {
+    const spec: Record<string, string> = {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: hour.schemaDay,
+      description: hour.label,
+    };
+    if (hour.opens && hour.closes) {
+      spec.opens = hour.opens;
+      spec.closes = hour.closes;
+    }
+    return spec;
+  }),
+};
+
+if (site.emailPublic) {
+  business.email = site.email;
+}
+
+const sameAs = [site.social.instagram, site.social.facebook].filter(Boolean);
+if (sameAs.length) business.sameAs = sameAs;
+
+const graph: Record<string, unknown>[] = [business];
+
+if (includeEvent) {
+  const event: Record<string, unknown> = {
+    '@type': 'Event',
+    '@id': `${origin}/#pumpkin-patch-${site.season.year}`,
+    name: `${site.name} ${site.season.name} ${site.season.year}`,
+    description:
+      'Weekend pumpkin patch with u-pick pumpkins and gourds, tractor hayrides, and farm activities outside Colorado Springs. Open Friday afternoons, Saturday and Sunday all day.',
+    startDate: site.season.start,
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    eventStatus: 'https://schema.org/EventScheduled',
+    image,
+    location: {
+      '@type': 'Place',
+      name: site.name,
+      address,
+    },
+    organizer: {
+      '@type': 'Organization',
+      name: site.name,
+      url: origin + '/',
+    },
+  };
+  if (site.season.end) event.endDate = site.season.end;
+  if (site.price) {
+    event.offers = {
+      '@type': 'Offer',
+      price: site.price,
+      priceCurrency: 'USD',
+      url: origin + '/visit/',
+    };
+  }
+  graph.push(event);
+}
+
+if (faq.length) {
+  graph.push({
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  });
+}
+
+const json = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@graph': graph,
+}).replace(/</g, '\\u003c');
+---
+
+<script type="application/ld+json" set:html={json} />

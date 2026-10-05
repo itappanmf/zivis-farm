@@ -1,0 +1,25 @@
+---
+import type { ImageMetadata } from 'astro';
+import FarmPhoto from './FarmPhoto.astro';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  spot?: string;
+}
+
+const { src, alt, spot = 'center 32%' } = Astro.props;
+---
+
+<figure class="moment">
+  <div class="photo-circle" style={`--spot: ${spot}`}>
+    <FarmPhoto src={src} alt={alt} sizes="(min-width: 840px) 16rem, 42vw" widths={[280, 480]} />
+  </div>
+  <figcaption class="script"><slot /></figcaption>
+</figure>
+
+<style>
+  .moment {
+    margin: 0;
+  }
+</style>

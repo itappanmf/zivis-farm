@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+import logo from '../assets/logo/zivis-farm-logo.jpg';
+
+const description =
+  'Zivi’s Farm will grow flowers next spring — sunflowers, lavender, and coneflowers. The pumpkin patch is open on weekends until then.';
+
+const subject = encodeURIComponent("Flower season at Zivi's Farm");
+---
+
+<Base title="A Flower Farm, Coming Next Spring" description={description}>
+  <section class="section flowers-page">
+    <div class="wrap-narrow">
+      <Image
+        class="logo-medallion"
+        src={logo}
+        alt="Zivi’s Farm logo: a watercolor circle of sunflowers, lavender, and coneflowers around a wind turbine at sunset."
+        width={640}
+        height={640}
+      />
+      <p class="script">next spring</p>
+      <h1>Flowers, when the field is ready</h1>
+      <p class="lede">
+        The same ground that holds the pumpkins will grow flowers. Sunflowers, lavender, coneflowers — the bouquet
+        already painted into our mark. This fall the gate is open for pumpkins. The rows of color are the chapter we
+        are planting toward.
+      </p>
+      <p>
+        <a class="btn" href={`mailto:${site.email}?subject=${subject}`}>Tell me when the flowers open</a>
+      </p>
+      <p class="fine">
+        The address behind that button, {site.email}, is a stand-in until the farm confirms a real mailbox. You can
+        also leave your name with us at the patch.
+      </p>
+      <p><a href="/pumpkin-patch/">This fall, come for the pumpkins.</a></p>
+    </div>
+  </section>
+</Base>

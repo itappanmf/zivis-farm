@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import DeckledPhoto from '../components/DeckledPhoto.astro';
+import ScriptCaption from '../components/ScriptCaption.astro';
+import swing from '../assets/photos/scarecrow-swing.jpg';
+import team from '../assets/photos/team.jpg';
+
+const description =
+  'The story of Zivi’s Farm, a new pumpkin patch on the prairie north of Colorado Springs, with a flower farm on the way.';
+---
+
+<Base title="Our Story" description={description}>
+  <PageHero
+    src={swing}
+    alt="A scarecrow in a floral shirt and green bonnet, with a swing set and a line of wind turbines across the prairie."
+    position="scarecrow"
+  >
+    <p class="eyebrow">North of the city</p>
+    <h1>A new gate, an old kind of Saturday</h1>
+    <p>Pumpkins this fall. Flowers when the field is ready. The turbines were already here.</p>
+  </PageHero>
+
+  <section class="section">
+    <div class="wrap split">
+      <DeckledPhoto
+        src={team}
+        alt="Five people from Zivi’s Farm standing with a black-and-white dog in front of a garage door trimmed with corn stalks and jack-o’-lanterns."
+        sizes="(min-width: 840px) 46rem, 92vw"
+      >
+        <ScriptCaption>the crew, and the dog who thinks he drives</ScriptCaption>
+      </DeckledPhoto>
+      <div>
+        <p>
+          Zivi’s Farm is new. The gate opened in the fall of 2026, on open ground north of Colorado Springs, where you
+          can see the turbines turning before you see the pumpkins.
+        </p>
+        <p>
+          We are a small crew — the people in the green shirts, and a dog who prefers the tractor to the ground. This
+          season the field is pumpkins. Next season, if the prairie agrees, it is flowers.
+        </p>
+        <p>
+          The longer story is still being lived. What you see on a Saturday is the true part: a wagon, a field, and
+          time enough to stay.
+        </p>
+        <p><a class="btn" href="/flowers/">The flower season</a></p>
+      </div>
+    </div>
+  </section>
+</Base>

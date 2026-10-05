@@ -1,0 +1,21 @@
+{
+  "name": "Zivi's Farm",
+  "short_name": "Zivi's Farm",
+  "description": "A weekend pumpkin patch on the prairie outside Colorado Springs.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF6EC",
+  "theme_color": "#FBF6EC",
+  "icons": [
+    {
+      "src": "/favicons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

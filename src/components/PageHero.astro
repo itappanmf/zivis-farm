@@ -1,0 +1,33 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  /** Shifts the crop: high sky, wagon (low), or the scarecrow on the right. */
+  position?: 'high' | 'wagon' | 'scarecrow';
+  align?: 'start' | 'end';
+}
+
+const { src, alt, position, align = 'start' } = Astro.props;
+const widths = [...new Set([640, 960, 1280].filter((w) => w < src.width).concat(src.width))].sort((a, b) => a - b);
+---
+
+<section class:list={['hero', position && `pos-${position}`, align === 'end' && 'is-end']}>
+  <Picture
+    src={src}
+    alt={alt}
+    widths={widths}
+    sizes="100vw"
+    formats={['avif', 'webp']}
+    fallbackFormat="webp"
+    quality={55}
+    priority
+    class="hero-img"
+    pictureAttributes={{ class: 'hero-picture' }}
+  />
+  <div class="hero-scrap">
+    <slot />
+  </div>
+</section>

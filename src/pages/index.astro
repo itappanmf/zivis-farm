@@ -1,0 +1,147 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import TurbineDivider from '../components/TurbineDivider.astro';
+import DeckledPhoto from '../components/DeckledPhoto.astro';
+import PhotoCircle from '../components/PhotoCircle.astro';
+import HoursCard from '../components/HoursCard.astro';
+import ComingSoonBand from '../components/ComingSoonBand.astro';
+import ScriptCaption from '../components/ScriptCaption.astro';
+import { site } from '../data/site';
+
+import field from '../assets/photos/pumpkin-field-dusk.jpg';
+import wagon from '../assets/photos/hayride-from-behind.jpg';
+import tractor from '../assets/photos/hayride-tractor-dog.jpg';
+import family from '../assets/photos/hayride-family.jpg';
+import bunny from '../assets/photos/girl-with-bunny.jpg';
+import paint from '../assets/photos/girl-face-paint.jpg';
+import corn from '../assets/photos/corn-tunnel.jpg';
+import swing from '../assets/photos/scarecrow-swing.jpg';
+import smores from '../assets/photos/smores-bucket.jpg';
+import lounge from '../assets/photos/lounge.jpg';
+---
+
+<Base title={site.homeTitle} includeEvent>
+  <PageHero
+    src={field}
+    alt="A dusk field of orange, green, and warty pumpkins, with wind turbines on the horizon and a red tractor waiting at the edge."
+    position="high"
+  >
+    <p class="eyebrow">Colorado Springs</p>
+    <h1>Pick your pumpkin <em>under the big Colorado sky</em></h1>
+    <p>Weekends this fall. Friday afternoons, Saturday and Sunday all day.</p>
+    <p><a class="btn" href="/visit/">Plan your visit</a></p>
+  </PageHero>
+
+  <TurbineDivider />
+
+  <section class="section">
+    <div class="wrap split">
+      <DeckledPhoto
+        src={wagon}
+        alt="Families riding a hay wagon across open prairie, wind turbines turning on the horizon."
+      >
+        <ScriptCaption>the wagon, already full</ScriptCaption>
+      </DeckledPhoto>
+      <div>
+        <p class="eyebrow">You arrive</p>
+        <h2>The road opens onto grass, turbines, and a wagon.</h2>
+        <p>
+          Zivi's Farm is a pumpkin patch on the prairie north of Colorado Springs, a short drive from Black Forest,
+          Falcon, and Peyton. You ride out, you walk the rows, and you pick the one that looks like it has a name.
+        </p>
+        <p>Kids, grandparents, and a leash if the dog is coming. Ask us at the gate before you unload.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="ride">
+        <DeckledPhoto
+          src={tractor}
+          alt="An orange Kubota tractor with a black farm dog in the driver's lap and a hay wagon behind."
+          sizes="(min-width: 840px) 42rem, 92vw"
+        >
+          <ScriptCaption>the farm dog rides along</ScriptCaption>
+        </DeckledPhoto>
+        <DeckledPhoto
+          src={family}
+          alt="Families seated on hay bales in a wagon, a wind turbine tall behind them under a clear sky."
+          sizes="(min-width: 840px) 24rem, 70vw"
+        >
+          <ScriptCaption>everyone finds a bale</ScriptCaption>
+        </DeckledPhoto>
+      </div>
+      <div class="wrap-narrow" style="margin-top: 2rem">
+        <h2>Out to the patch, and back with one in your lap.</h2>
+        <p>
+          A short ride behind the tractor, hay bales for seats, and the whole prairie in front of you. The dog has
+          opinions about who is driving. You can ignore him.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>The small things people remember</h2>
+      <ul class="moments">
+        <li>
+          <PhotoCircle src={bunny} alt="A child in a white shirt holding a soft brown lop-eared bunny close." spot="center 42%">
+            a very patient bunny
+          </PhotoCircle>
+        </li>
+        <li>
+          <PhotoCircle src={paint} alt="A smiling child with glasses and a streak of blue face paint." spot="center 30%">
+            blue paint, big grin
+          </PhotoCircle>
+        </li>
+        <li>
+          <PhotoCircle src={corn} alt="A toddler crawling through a tunnel of dried corn stalks." spot="center 62%">
+            the little ones' corn tunnel
+          </PhotoCircle>
+        </li>
+        <li>
+          <PhotoCircle src={swing} alt="A scarecrow in a green hat standing by a swing set, wind turbines beyond the field." spot="center 58%">
+            swings, with a scarecrow on watch
+          </PhotoCircle>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="golden section">
+    <div class="wrap golden-grid">
+      <DeckledPhoto
+        src={smores}
+        alt="An orange tub packed with s'mores kits: graham crackers, marshmallows, and chocolate bars on sticks."
+      >
+        <ScriptCaption>packed for the fire</ScriptCaption>
+      </DeckledPhoto>
+      <div>
+        <p class="script">stay a while</p>
+        <h2>Stay until the light goes gold.</h2>
+        <p>
+          S'mores kits are ready when you are, and there is a place to sit once the wind settles. The prairie does the
+          rest.
+        </p>
+        <DeckledPhoto
+          src={lounge}
+          alt="Outdoor wicker chairs with red cushions and floral pillows, under a wide blue sky."
+          sizes="(min-width: 840px) 28rem, 92vw"
+        >
+          <ScriptCaption>a place to sit</ScriptCaption>
+        </DeckledPhoto>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <HoursCard />
+    </div>
+  </section>
+
+  <ComingSoonBand />
+</Base>

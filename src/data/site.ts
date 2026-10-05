@@ -52,7 +52,7 @@ export const site = {
   ],
   /**
    * TODO: confirm the first and last weekend.
-   * start is the weekend we know the patch was already open (early October 2026), not a announced opening day.
+   * start is the weekend we know the patch was already open (early October 2026), not an announced opening day.
    * Leave end empty until the farm names a last day.
    */
   season: {
@@ -71,6 +71,15 @@ export const site = {
 } as const;
 
 export const hoursSummary = 'Friday afternoons, Saturday and Sunday all day';
+
+export const nearby = ['Colorado Springs', 'Black Forest', 'Falcon', 'Peyton'] as const;
+
+export const nav = [
+  { href: '/pumpkin-patch/', label: 'Pumpkin Patch' },
+  { href: '/visit/', label: 'Visit' },
+  { href: '/about/', label: 'Our Story' },
+  { href: '/flowers/', label: 'Flowers' },
+] as const;
 
 export const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   `${site.address.street}, ${site.address.city}, ${site.address.region} ${site.address.postalCode}`,
@@ -96,6 +105,11 @@ export const faqs = [
     question: 'Is the patch accessible?',
     answer:
       'The ground is prairie grass and dirt, and the wagon is a step up. It is a field, not a paved park. If someone in your group needs a steadier way through, tell us when you arrive and we will help you find one.',
+  },
+  {
+    question: 'Do we need tickets ahead of time?',
+    answer:
+      'No. Come during open hours and we will get you onto a wagon. If a Saturday ever needs a timed entry, we will say so on this page first.',
   },
   {
     question: 'What if the weather turns?',
