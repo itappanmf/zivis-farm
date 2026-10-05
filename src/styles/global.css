@@ -346,6 +346,10 @@ a:hover {
   max-width: min(16ch, 100%);
 }
 
+.hero-scrap p {
+  max-width: 32ch;
+}
+
 .hero-scrap p:last-child {
   margin-bottom: 0;
 }
@@ -795,15 +799,21 @@ h1 {
   }
 
   .hero {
+    display: block;
     min-height: 86svh;
+    padding: 5.5rem 0.85rem 7rem;
   }
 
   .hero-scrap {
-    margin: 7vh 0.85rem 16vh;
+    margin: 0;
+    width: auto;
+    max-width: none;
+    padding: 1.1rem 1rem 1.25rem;
   }
 
   .hero-scrap h1 {
-    font-size: clamp(1.85rem, 8vw, 2.6rem);
+    max-width: 10ch;
+    font-size: 2rem;
   }
 
   .hero.is-end {
